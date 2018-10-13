@@ -102,3 +102,10 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# MySQL
+mysql/mysql_data
+
+# Flask-Migrate
+src/migrations
+
