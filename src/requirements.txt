@@ -7,3 +7,5 @@ pymysql
 gunicorn
 flask_marshmallow
 marshmallow-sqlalchemy
+pytest
+flask_testing
