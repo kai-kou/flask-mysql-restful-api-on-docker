@@ -36,3 +36,9 @@ PythonのFlaskでMySQLを利用したRESTfulなAPIをDocker環境で実装する
 # DELETE
 > curl -X DELETE http://localhost:5000/hoges/[id]
 ```
+
+## Test
+
+```sh
+> docker-compose exec api pytest
+```
