@@ -2,15 +2,15 @@ from flask import Flask, jsonify
 
 from flask_restful import Api
 
-from database import init_db
+from src.database import init_db
 
-from apis.hoge import HogeListAPI, HogeAPI
+from src.apis.hoge import HogeListAPI, HogeAPI
 
 
 def create_app():
 
   app = Flask(__name__)
-  app.config.from_object('config.Config')
+  app.config.from_object('src.config.Config')
 
   init_db(app)
 
