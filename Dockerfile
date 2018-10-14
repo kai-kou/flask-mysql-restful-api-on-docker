@@ -1,6 +1,6 @@
 FROM python:3.6
 
-ARG project_dir=/projects/
+ARG project_dir=/src/
 
 ADD src/requirements.txt $project_dir
 

@@ -6,7 +6,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - "./src:/projects"
+      - "./src:/src"
     tty: true
     environment:
       TZ: Asia/Tokyo
