@@ -50,7 +50,7 @@ class TestHogeListAPI(BaseTestCase):
 class TestHogeAPI(BaseTestCase):
 
   def test_get_hoges_404(self):
-    response = self.app.get('/hoges/xxx')
+    response = self.app.get('/hoges/8f03fdda-2bf4-4e81-bdb9-eec353488545')
     self.assert_404(response)
 
   def test_post_hoges_201(self):
