@@ -4,6 +4,8 @@ from flask_marshmallow import Marshmallow
 
 from flask_marshmallow.fields import fields
 
+from sqlalchemy_utils import UUIDType
+
 from src.database import db
 
 import uuid
@@ -14,7 +16,7 @@ ma = Marshmallow()
 class HogeModel(db.Model):
   __tablename__ = 'hoges'
 
-  id = db.Column(db.String(255), primary_key=True, default=str(uuid.uuid4()))
+  id = db.Column(UUIDType(binary=False), primary_key=True, default=uuid.uuid4)
   name = db.Column(db.String(255), nullable=False)
   state = db.Column(db.String(255), nullable=False)
 
