@@ -106,6 +106,4 @@ venv.bak/
 # MySQL
 mysql/mysql_data
 
-# Flask-Migrate
-src/migrations
 
