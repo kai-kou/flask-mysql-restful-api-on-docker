@@ -9,8 +9,6 @@ PythonのFlaskでMySQLを利用したRESTfulなAPIをDocker環境で実装する
 > cd flask-mysql-restful-api-on-docker
 > docker-compose up -d
 > docker-compose exec api bash
->> flask db init
->> flask db migrate
 >> flask db upgrade
 ```
 
