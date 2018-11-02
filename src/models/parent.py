@@ -12,35 +12,27 @@ import uuid
 
 ma = Marshmallow()
 
-from .parent import ParentModel, ParentSchema
 
-
-class HogeModel(db.Model):
-  __tablename__ = 'hoges'
+class ParentModel(db.Model):
+  __tablename__ = 'parents'
 
   id = db.Column(UUIDType(binary=False), primary_key=True, default=uuid.uuid4)
   name = db.Column(db.String(255), nullable=False)
-  state = db.Column(db.String(255), nullable=False)
-  parent_id = db.Column(UUIDType(binary=False), db.ForeignKey('parents.id'), nullable=False)
-  parent = db.relationship("ParentModel", backref='hoges')
 
   createTime = db.Column(db.DateTime, nullable=False, default=datetime.now)
   updateTime = db.Column(db.DateTime, nullable=False, default=datetime.now, onupdate=datetime.now)
 
-  def __init__(self, name, state, parent_id):
+  def __init__(self, name):
     self.name = name
-    self.state = state
-    self.parent_id = parent_id
 
 
   def __repr__(self):
-    return '<HogeModel {}:{}>'.format(self.id, self.name)
+    return '<ParentModel {}:{}>'.format(self.id, self.name)
 
 
-class HogeSchema(ma.ModelSchema):
+class ParentSchema(ma.ModelSchema):
   class Meta:
-    model = HogeModel
+    model = ParentModel
 
   createTime = fields.DateTime('%Y-%m-%dT%H:%M:%S')
   updateTime = fields.DateTime('%Y-%m-%dT%H:%M:%S')
-  parent = ma.Nested(ParentSchema)

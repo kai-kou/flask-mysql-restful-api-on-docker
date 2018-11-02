@@ -12,6 +12,7 @@ class HogeListAPI(Resource):
     self.reqparse = reqparse.RequestParser()
     self.reqparse.add_argument('name', required=True)
     self.reqparse.add_argument('state', required=True)
+    self.reqparse.add_argument('parent_id', required=True)
     super(HogeListAPI, self).__init__()
 
 
@@ -23,7 +24,7 @@ class HogeListAPI(Resource):
 
   def post(self):
     args = self.reqparse.parse_args()
-    hoge = HogeModel(args.name, args.state)
+    hoge = HogeModel(args.name, args.state, args.parent_id)
     db.session.add(hoge)
     db.session.commit()
     res = HogeSchema().dump(hoge).data
@@ -35,6 +36,7 @@ class HogeAPI(Resource):
     self.reqparse = reqparse.RequestParser()
     self.reqparse.add_argument('name')
     self.reqparse.add_argument('state')
+    self.reqparse.add_argument('parent_id')
     super(HogeAPI, self).__init__()
 
 
